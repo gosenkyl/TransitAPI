@@ -2,16 +2,12 @@ package com.gosenk.transit.api.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "shapes")
 public class Shapes extends BaseEntity {
 
-    @Id
-    @Column(name = "shape_id")
-    private String shapeId;
     @Column(name = "shape_pt_lat")
     private Double shapePtLat;
     @Column(name = "shape_pt_lon")
@@ -20,14 +16,6 @@ public class Shapes extends BaseEntity {
     private Integer shapePtSequence;
     @Column(name = "shape_dist_traveled")
     private Double shapeDistTraveled;
-
-    public String getShapeId() {
-        return shapeId;
-    }
-
-    public void setShapeId(String shapeId) {
-        this.shapeId = shapeId;
-    }
 
     public Double getShapePtLat() {
         return shapePtLat;

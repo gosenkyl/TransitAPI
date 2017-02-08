@@ -14,7 +14,7 @@ public class AgencyProcess extends DataProcessor implements BaseDataProcess {
     public void processData(String[] columns) throws Exception{
 
         Agency agency = new Agency();
-        agency.setAgencyId(columns[0].trim());
+        agency.setId(columns[0].trim());
         agency.setAgencyName(columns[1].trim());
         agency.setAgencyUrl(columns[2].trim());
         agency.setAgencyTimezone(columns[3].trim());

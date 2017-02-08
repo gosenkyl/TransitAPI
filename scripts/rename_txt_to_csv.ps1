@@ -1,0 +1,1 @@
+Dir *.txt | rename-item -newname { [io.path]::ChangeExtension($_.name, "csv") }

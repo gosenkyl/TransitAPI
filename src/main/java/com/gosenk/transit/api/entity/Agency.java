@@ -2,16 +2,12 @@ package com.gosenk.transit.api.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "agency")
 public class Agency extends BaseEntity{
 
-    @Id
-    @Column(name = "agency_id")
-    private String agencyId;
     @Column(name = "agency_name")
     private String agencyName;
     @Column(name = "agency_url")
@@ -24,14 +20,6 @@ public class Agency extends BaseEntity{
     private String agencyPhone;
     @Column(name = "agency_fare_url")
     private String agencyFareUrl;
-
-    public String getAgencyId() {
-        return agencyId;
-    }
-
-    public void setAgencyId(String agencyId) {
-        this.agencyId = agencyId;
-    }
 
     public String getAgencyName() {
         return agencyName;

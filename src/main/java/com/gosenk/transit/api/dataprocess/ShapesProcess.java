@@ -1,8 +1,6 @@
 package com.gosenk.transit.api.dataprocess;
 
-import com.gosenk.transit.api.entity.Agency;
 import com.gosenk.transit.api.entity.Shapes;
-import org.apache.commons.lang3.ClassUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 
@@ -17,7 +15,7 @@ public class ShapesProcess extends DataProcessor implements BaseDataProcess {
     public void processData(String[] columns) throws Exception{
 
         Shapes shapes = new Shapes();
-        shapes.setShapeId(columns[0].trim());
+        shapes.setId(columns[0].trim());
 
         Double shapePtLat = null;
         if(StringUtils.isNotEmpty(columns[1])){

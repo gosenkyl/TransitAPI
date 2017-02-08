@@ -18,7 +18,7 @@ public class CalendarProcess extends DataProcessor implements BaseDataProcess {
     public void processData(String[] columns) throws Exception{
 
         Calendar cal = new Calendar();
-        cal.setCalendarId(UUID.randomUUID().toString());
+        cal.setId(UUID.randomUUID().toString());
         cal.setServiceId(columns[0].trim());
         cal.setMonday("1".equals(columns[1].trim()));
         cal.setTuesday("1".equals(columns[2].trim()));

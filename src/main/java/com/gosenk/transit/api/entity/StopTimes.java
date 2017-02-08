@@ -2,7 +2,6 @@ package com.gosenk.transit.api.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.Table;
 import java.sql.Time;
 
@@ -10,9 +9,6 @@ import java.sql.Time;
 @Table(name = "stop_times")
 public class StopTimes extends BaseEntity {
 
-    @Id
-    @Column(name = "stop_times_id")
-    private String stopTimesId;
     @Column(name = "trip_id")
     private String tripId;
     @Column(name = "arrival_time")
@@ -31,14 +27,6 @@ public class StopTimes extends BaseEntity {
     private Long dropOffType;
     @Column(name = "shape_dist_traveled")
     private Double shapeDistTraveled;
-
-    public String getStopTimesId() {
-        return stopTimesId;
-    }
-
-    public void setStopTimesId(String stopTimesId) {
-        this.stopTimesId = stopTimesId;
-    }
 
     public String getTripId() {
         return tripId;

@@ -17,7 +17,7 @@ public class FareRulesProcess extends DataProcessor implements BaseDataProcess {
 
         FareRules fareRules = new FareRules();
 
-        fareRules.setFareRulesId(UUID.randomUUID().toString());
+        fareRules.setId(UUID.randomUUID().toString());
         fareRules.setFareId(columns[0].trim());
         fareRules.setRouteId(columns[1].trim());
         fareRules.setOriginId(columns[2].trim());

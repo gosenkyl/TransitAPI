@@ -1,11 +1,8 @@
 package com.gosenk.transit.api.dataprocess;
 
-import com.gosenk.transit.api.entity.Agency;
 import com.gosenk.transit.api.entity.Trips;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
-
-import java.util.UUID;
 
 @Component
 public class TripsProcess extends DataProcessor implements BaseDataProcess {
@@ -21,7 +18,7 @@ public class TripsProcess extends DataProcessor implements BaseDataProcess {
 
         trips.setRouteId(columns[0].trim());
         trips.setServiceId(columns[1].trim());
-        trips.setTripsId(columns[2].trim());
+        trips.setId(columns[2].trim());
         trips.setTripHeadsign(columns[3].trim());
         trips.setTripShortName(columns[4].trim());
 

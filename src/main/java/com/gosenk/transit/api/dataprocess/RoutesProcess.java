@@ -15,7 +15,7 @@ public class RoutesProcess extends DataProcessor implements BaseDataProcess {
 
         Route route = new Route();
 
-        route.setRouteId(columns[0].trim());
+        route.setId(columns[0].trim());
         route.setAgencyId(columns[1].trim());
         route.setRouteShortName(columns[2].trim());
         route.setRouteLongName(columns[3].trim());

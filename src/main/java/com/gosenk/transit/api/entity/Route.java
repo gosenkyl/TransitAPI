@@ -2,40 +2,35 @@ package com.gosenk.transit.api.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "route")
 public class Route extends BaseEntity {
 
-    @Id
-    @Column(name = "route_id")
-    private String routeId;
     @Column(name = "agency_id")
     private String agencyId;
+
     @Column(name = "route_short_name")
     private String routeShortName;
+
     @Column(name = "route_long_name")
     private String routeLongName;
+
     @Column(name = "route_desc")
     private String routeDesc;
+
     @Column(name = "route_type")
     private String routeType;
+
     @Column(name = "route_url")
     private String routeUrl;
+
     @Column(name = "route_color")
     private String routeColor;
+
     @Column(name = "route_text_color")
     private String routeTextColor;
-
-    public String getRouteId() {
-        return routeId;
-    }
-
-    public void setRouteId(String routeId) {
-        this.routeId = routeId;
-    }
 
     public String getAgencyId() {
         return agencyId;

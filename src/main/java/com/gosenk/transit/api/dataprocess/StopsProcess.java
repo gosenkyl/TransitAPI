@@ -1,9 +1,7 @@
 package com.gosenk.transit.api.dataprocess;
 
-import com.gosenk.transit.api.entity.Agency;
 import com.gosenk.transit.api.entity.Stops;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.el.lang.ELArithmetic;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -18,7 +16,7 @@ public class StopsProcess extends DataProcessor implements BaseDataProcess {
 
         Stops stops = new Stops();
 
-        stops.setStopId(columns[0].trim());
+        stops.setId(columns[0].trim());
         stops.setStopCode(columns[1].trim());
         stops.setStopName(columns[2].trim());
         stops.setStopDesc(columns[3].trim());

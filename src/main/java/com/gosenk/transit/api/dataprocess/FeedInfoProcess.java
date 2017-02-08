@@ -19,7 +19,7 @@ public class FeedInfoProcess extends DataProcessor implements BaseDataProcess {
 
         FeedInfo feedInfo = new FeedInfo();
 
-        feedInfo.setFeedInfoId(UUID.randomUUID().toString());
+        feedInfo.setId(UUID.randomUUID().toString());
         feedInfo.setFeedPublisherName(columns[0].trim());
         feedInfo.setFeedPublisherUrl(columns[1].trim());
         feedInfo.setFeedLang(columns[2].trim());

@@ -2,16 +2,12 @@ package com.gosenk.transit.api.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name = "trips")
 public class Trips extends BaseEntity {
 
-    @Id
-    @Column(name = "trips_id")
-    private String tripsId;
     @Column(name = "route_id")
     private String routeId;
     @Column(name = "service_id")
@@ -30,14 +26,6 @@ public class Trips extends BaseEntity {
     private Integer wheelchairAccessible;
     @Column(name = "bikes_allowed")
     private Integer bikesAllowed;
-
-    public String getTripsId() {
-        return tripsId;
-    }
-
-    public void setTripsId(String tripsId) {
-        this.tripsId = tripsId;
-    }
 
     public String getRouteId() {
         return routeId;

@@ -2,7 +2,6 @@ package com.gosenk.transit.api.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Date;
 
@@ -10,9 +9,6 @@ import java.util.Date;
 @Table(name = "calendar")
 public class Calendar extends BaseEntity{
 
-    @Id
-    @Column(name = "calendar_id")
-    private String calendarId;
     @Column(name = "service_id")
     private String serviceId;
     @Column(name = "monday")
@@ -33,14 +29,6 @@ public class Calendar extends BaseEntity{
     private Date startDate;
     @Column(name = "end_date")
     private Date endDate;
-
-    public String getCalendarId() {
-        return calendarId;
-    }
-
-    public void setCalendarId(String calendarId) {
-        this.calendarId = calendarId;
-    }
 
     public String getServiceId() {
         return serviceId;

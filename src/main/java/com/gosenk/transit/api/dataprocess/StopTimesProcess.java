@@ -1,7 +1,6 @@
 package com.gosenk.transit.api.dataprocess;
 
 import com.gosenk.transit.api.entity.StopTimes;
-import ma.glasnost.orika.impl.util.StringUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.stereotype.Component;
 
@@ -19,7 +18,7 @@ public class StopTimesProcess extends DataProcessor implements BaseDataProcess {
     public void processData(String[] columns) throws Exception{
         StopTimes stopTimes = new StopTimes();
 
-        stopTimes.setStopTimesId(UUID.randomUUID().toString());
+        stopTimes.setId(UUID.randomUUID().toString());
         stopTimes.setTripId(columns[0].trim());
 
         String timeStr = columns[1].trim();

@@ -18,7 +18,7 @@ public class CalendarDatesProcess extends DataProcessor implements BaseDataProce
     public void processData(String[] columns) throws Exception{
         CalendarDates calendarDates = new CalendarDates();
 
-        calendarDates.setCalendarDatesId(UUID.randomUUID().toString());
+        calendarDates.setId(UUID.randomUUID().toString());
         calendarDates.setServiceId(columns[0].trim());
 
         String dateStr = columns[1].trim();

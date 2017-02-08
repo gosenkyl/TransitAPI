@@ -2,7 +2,6 @@ package com.gosenk.transit.api.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.Table;
 import java.util.Date;
 
@@ -10,9 +9,6 @@ import java.util.Date;
 @Table(name = "feed_info")
 public class FeedInfo extends BaseEntity {
 
-    @Id
-    @Column(name = "feed_info_id")
-    private String feedInfoId;
     @Column(name = "feed_publisher_name")
     private String feedPublisherName;
     @Column(name = "feed_publisher_url")
@@ -25,14 +21,6 @@ public class FeedInfo extends BaseEntity {
     private Date feedEndDate;
     @Column(name = "feed_version")
     private String feedVersion;
-
-    public String getFeedInfoId() {
-        return feedInfoId;
-    }
-
-    public void setFeedInfoId(String feedInfoId) {
-        this.feedInfoId = feedInfoId;
-    }
 
     public String getFeedPublisherName() {
         return feedPublisherName;
