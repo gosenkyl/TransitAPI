@@ -1,4 +1,6 @@
--- Create Schema Here
+CREATE SCHEMA transit;
+
+use transit;
 
 CREATE TABLE `transit`.`agency` (
   `id` VARCHAR(32) NOT NULL,
@@ -121,47 +123,59 @@ CREATE TABLE `transit`.`trips` (
   `bikes_allowed` TINYINT(1) NULL,
   PRIMARY KEY (`id`));
 
+DELIMITER $$
 CREATE TRIGGER calendar_id
 BEFORE INSERT ON calendar
 FOR EACH  ROW
 BEGIN
     SET NEW.id = UUID();
-END;
+END$$
+DELIMITER ;
 
+DELIMITER $$
 CREATE TRIGGER calendar_dates_id
 BEFORE INSERT ON calendar_dates
 FOR EACH  ROW
 BEGIN
     SET NEW.id = UUID();
-END;
+END$$
+DELIMITER ;
 
+DELIMITER $$
 CREATE TRIGGER fare_attributes_id
 BEFORE INSERT ON fare_attributes
 FOR EACH  ROW
 BEGIN
     SET NEW.id = UUID();
-END;
+END$$
+DELIMITER ;
 
+DELIMITER $$
 CREATE TRIGGER fare_rules_id
 BEFORE INSERT ON fare_rules
 FOR EACH  ROW
 BEGIN
     SET NEW.id = UUID();
-END;
+END$$
+DELIMITER ;
 
+DELIMITER $$
 CREATE TRIGGER feed_info_id
 BEFORE INSERT ON feed_info
 FOR EACH  ROW
 BEGIN
     SET NEW.id = UUID();
-END;
+END$$
+DELIMITER ;
 
+DELIMITER $$
 CREATE TRIGGER stop_times_id
 BEFORE INSERT ON stop_times
 FOR EACH  ROW
 BEGIN
     SET NEW.id = UUID();
-END;
+END$$
+DELIMITER ;
 
 CREATE VIEW `route_to_stop` AS
 SELECT DISTINCT CONCAT(`tr`.`route_id`, `sp`.`id`) AS id, tr.route_id AS route_id, sp.id AS stop_id, sp.stop_name as stop_name

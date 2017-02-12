@@ -10,19 +10,31 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 @RestController
-@RequestMapping("api/stoptimes")
+@RequestMapping( value = "api/stoptimes", produces = MediaType.APPLICATION_JSON_VALUE)
 @CrossOrigin
 public class StopTimesResource {
 
     @Autowired
     private StopTimesService service;
 
-    @RequestMapping(value = "", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
-    public ResponseEntity<List<StopTimes>> getAll(){
+    @RequestMapping(value = "", method = RequestMethod.GET)
+    public ResponseEntity<List<StopTimes>> getAll(@RequestParam Map<String, String> requestParams){
         try {
-            return new ResponseEntity<>(service.findAll(), HttpStatus.OK);
+            String routeId = requestParams.get("routeId");
+            String stopId = requestParams.get("stopId");
+            String date = requestParams.get("date");
+
+            List<StopTimes> stopTimes;
+            if(requestParams.size() == 0 || routeId == null || stopId == null || date == null){
+                stopTimes = service.findAll();
+            } else {
+                stopTimes = service.getByRouteStopDate(routeId, stopId, date);
+            }
+
+            return new ResponseEntity<>(stopTimes, HttpStatus.OK);
         } catch (Exception e) {
             e.printStackTrace();
         }
