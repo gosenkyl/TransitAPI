@@ -11,6 +11,4 @@ public interface StopTimesRepository extends PagingAndSortingRepository<StopTime
 
     //List<ReferenceData> findBySetIdOrderByOrderAsc(String setId);
 
-    List<StopTimes> findByStopId(String stopId);
-
 }
