@@ -29,7 +29,7 @@ public class RouteToStopResource {
         return new ResponseEntity<>(new ArrayList<RouteToStop>(), HttpStatus.BAD_REQUEST);
     }
 
-    @RequestMapping(value = "{id}", method = RequestMethod.GET)
+    @RequestMapping(value = "{id}", method = RequestMethod.GET, produces = {MediaType.APPLICATION_JSON_VALUE})
     public ResponseEntity<List<RouteToStop>> getById(@PathVariable String id){
         return new ResponseEntity<>(service.findByRouteId(id), HttpStatus.OK);
     }

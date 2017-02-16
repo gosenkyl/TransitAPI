@@ -40,7 +40,7 @@ public class Stops extends BaseEntity {
     }
 
     public String getStopName() {
-        return stopName;
+        return stopName == null ? null : stopName.toLowerCase();
     }
 
     public void setStopName(String stopName) {

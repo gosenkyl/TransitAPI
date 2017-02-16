@@ -65,9 +65,9 @@ CREATE TABLE `transit`.`feed_info` (
 CREATE TABLE `transit`.`route` (
   `id` VARCHAR(32) NOT NULL,
   `agency_id` VARCHAR(32) NULL,
-  `route_short_name` VARCHAR(32) NULL,
-  `route_long_name` VARCHAR(32) NULL,
-  `route_desc` VARCHAR(32) NULL,
+  `route_short_name` VARCHAR(100) NULL,
+  `route_long_name` VARCHAR(100) NULL,
+  `route_desc` VARCHAR(100) NULL,
   `route_type` VARCHAR(32) NULL,
   `route_url` VARCHAR(100) NULL,
   `route_color` VARCHAR(32) NULL,
@@ -178,7 +178,7 @@ END$$
 DELIMITER ;
 
 CREATE VIEW `route_to_stop` AS
-SELECT DISTINCT CONCAT(`tr`.`route_id`, `sp`.`id`) AS id, tr.route_id AS route_id, sp.id AS stop_id, sp.stop_name as stop_name
+SELECT DISTINCT CONCAT(`tr`.`route_id`, `sp`.`id`) AS id, tr.route_id AS route_id, sp.id AS stop_id, tr.direction_id as direction_id
 	FROM trips tr
 	INNER JOIN stop_times st ON tr.id = st.trip_id
 	INNER JOIN stops sp ON sp.id = st.stop_id;

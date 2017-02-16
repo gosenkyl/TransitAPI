@@ -14,8 +14,8 @@ public class RouteToStop extends BaseEntity {
     @JoinColumn(name = "stop_id", insertable = false, updatable = false)
     private Stops stop;
 
-    @Column(name = "stop_name")
-    private String stopName;
+    @Column(name = "direction_id")
+    private Integer directionId;
 
     public Route getRoute() {
         return route;
@@ -25,7 +25,7 @@ public class RouteToStop extends BaseEntity {
         return stop;
     }
 
-    public String getStopName() {
-        return stopName;
+    public Integer getDirectionId() {
+        return directionId;
     }
 }

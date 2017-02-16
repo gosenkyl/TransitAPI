@@ -41,7 +41,7 @@ public class Route extends BaseEntity {
     }
 
     public String getRouteShortName() {
-        return routeShortName;
+        return routeShortName == null ? null : routeShortName.toLowerCase();
     }
 
     public void setRouteShortName(String routeShortName) {
@@ -49,7 +49,7 @@ public class Route extends BaseEntity {
     }
 
     public String getRouteLongName() {
-        return routeLongName;
+        return routeLongName == null ? null : routeLongName.toLowerCase();
     }
 
     public void setRouteLongName(String routeLongName) {

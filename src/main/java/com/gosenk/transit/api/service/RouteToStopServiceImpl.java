@@ -3,6 +3,7 @@ package com.gosenk.transit.api.service;
 import com.gosenk.transit.api.entity.RouteToStop;
 import com.gosenk.transit.api.repository.RouteToStopRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,7 +17,9 @@ public class RouteToStopServiceImpl extends BaseServiceImpl<RouteToStop, RouteTo
     }
 
     public List<RouteToStop> findByRouteId(String routeId){
-        return getRepository().findByAndSort(routeId);
+        Sort sort = new Sort(Sort.Direction.ASC, "directionId");//.and(new Sort(Sort.Direction.ASC, "stop.stopName"));
+
+        return getRepository().findByRouteIdAndSort(routeId, sort);
     }
 
 }
