@@ -17,9 +17,7 @@ public class RouteToStopServiceImpl extends BaseServiceImpl<RouteToStop, RouteTo
     }
 
     public List<RouteToStop> findByRouteId(String routeId){
-        Sort sort = new Sort(Sort.Direction.ASC, "directionId");//.and(new Sort(Sort.Direction.ASC, "stop.stopName"));
-
-        return getRepository().findByRouteIdAndSort(routeId, sort);
+        return getRepository().findByRouteId(routeId);
     }
 
 }

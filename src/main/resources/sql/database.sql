@@ -177,7 +177,7 @@ BEGIN
 END$$
 DELIMITER ;
 
-CREATE VIEW `route_to_stop` AS
+CREATE OR REPLACE VIEW `route_to_stop` AS
 SELECT DISTINCT CONCAT(`tr`.`route_id`, `sp`.`id`) AS id, tr.route_id AS route_id, sp.id AS stop_id, tr.direction_id as direction_id
 	FROM trips tr
 	INNER JOIN stop_times st ON tr.id = st.trip_id

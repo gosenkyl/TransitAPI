@@ -12,7 +12,7 @@ import java.util.List;
 @Repository
 public interface RouteToStopRepository extends PagingAndSortingRepository<RouteToStop, String> {
 
-    @Query(value = "select r from RouteToStop r where r.route.id = :routeId")
-    List<RouteToStop> findByRouteIdAndSort(@Param("routeId") String routeId, Sort sort);
+    @Query(value = "select r from RouteToStop r where r.route.id = :routeId order by r.stop.stopName asc")
+    List<RouteToStop> findByRouteId(@Param("routeId") String routeId);
 
 }
