@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "route")
+@Table(name = "routes")
 public class Route extends BaseEntity {
 
     @Column(name = "agency_id")

@@ -17,6 +17,9 @@ public class RouteToStop extends BaseEntity {
     @Column(name = "direction_id")
     private Integer directionId;
 
+    @Column(name = "stop_sequence")
+    private Integer stopSequence;
+
     public Route getRoute() {
         return route;
     }
@@ -27,5 +30,9 @@ public class RouteToStop extends BaseEntity {
 
     public Integer getDirectionId() {
         return directionId;
+    }
+
+    public Integer getStopSequence() {
+        return stopSequence;
     }
 }

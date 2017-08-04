@@ -177,8 +177,46 @@ BEGIN
 END$$
 DELIMITER ;
 
-CREATE OR REPLACE VIEW `route_to_stop` AS
-SELECT DISTINCT CONCAT(`tr`.`route_id`, `sp`.`id`) AS id, tr.route_id AS route_id, sp.id AS stop_id, tr.direction_id as direction_id
-	FROM trips tr
-	INNER JOIN stop_times st ON tr.id = st.trip_id
-	INNER JOIN stops sp ON sp.id = st.stop_id;
+CREATE
+     OR REPLACE
+VIEW `route_to_stop` AS
+    SELECT
+        CONCAT(`tr`.`route_id`,
+                `sp`.`id`,
+                `tr`.`direction_id`) AS `id`,
+        `tr`.`route_id` AS `route_id`,
+        `sp`.`id` AS `stop_id`,
+        `tr`.`direction_id` AS `direction_id`,
+         MAX(st.stop_sequence) AS stop_sequence
+    FROM
+        ((`trips` `tr`
+        JOIN `stop_times` `st` ON ((`tr`.`id` = `st`.`trip_id`)))
+        JOIN `stops` `sp` ON ((`sp`.`id` = `st`.`stop_id`)))
+        GROUP BY tr.route_id, sp.id, tr.direction_id;
+
+CREATE OR REPLACE VIEW `stop_times_by_stop` AS
+SELECT DISTINCT
+    `st`.`id` AS `id`,
+    `st`.`trip_id` AS `trip_id`,
+    `st`.`arrival_time` AS `arrival_time`,
+    `st`.`departure_time` AS `departure_time`,
+    `st`.`stop_id` AS `stop_id`,
+    `st`.`stop_sequence` AS `stop_sequence`,
+    `st`.`stop_headsign` AS `stop_headsign`,
+    `st`.`pickup_type` AS `pickup_type`,
+    `st`.`drop_off_type` AS `drop_off_type`,
+    `st`.`shape_dist_traveled` AS `shape_dist_traveled`,
+    `c`.`start_date` AS `start_date`,
+    `c`.`end_date` AS `end_date`,
+    `c`.`monday` AS `monday`,
+    `c`.`tuesday` AS `tuesday`,
+    `c`.`wednesday` AS `wednesday`,
+    `c`.`thursday` AS `thursday`,
+    `c`.`friday` AS `friday`,
+    `c`.`saturday` AS `saturday`,
+    `c`.`sunday` AS `sunday`,
+    `t`.`route_id` AS `route_id`
+FROM
+    ((`calendar` `c`
+    JOIN `trips` `t` ON ((`t`.`service_id` = `c`.`service_id`)))
+    JOIN `stop_times` `st` ON ((`st`.`trip_id` = `t`.`id`)))
