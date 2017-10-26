@@ -12,8 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/calendardates")
-@CrossOrigin
+@RequestMapping("calendardates")
 public class CalendarDatesResource {
 
     @Autowired

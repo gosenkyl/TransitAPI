@@ -12,8 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/agencies")
-@CrossOrigin
+@RequestMapping("agencies")
 public class AgencyResource {
 
     @Autowired

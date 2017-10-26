@@ -27,6 +27,8 @@ public class StopTimes extends BaseEntity {
     private Long dropOffType;
     @Column(name = "shape_dist_traveled")
     private Double shapeDistTraveled;
+    @Column(name = "timepoint")
+    private Long timepoint;
 
     public String getTripId() {
         return tripId;
@@ -98,5 +100,13 @@ public class StopTimes extends BaseEntity {
 
     public void setShapeDistTraveled(Double shapeDistTraveled) {
         this.shapeDistTraveled = shapeDistTraveled;
+    }
+
+    public Long getTimepoint() {
+        return timepoint;
+    }
+
+    public void setTimepoint(Long timepoint) {
+        this.timepoint = timepoint;
     }
 }

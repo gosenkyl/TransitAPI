@@ -73,7 +73,7 @@ public class StopTimesServiceImpl extends BaseServiceImpl<StopTimes, StopTimesRe
             }
 
             String query = "select distinct st.id, st.trip_id, st.arrival_time, st.departure_time, st.stop_id, st.stop_sequence, " +
-                    " st.stop_headsign, st.pickup_type, st.drop_off_type, st.shape_dist_traveled " +
+                    " st.stop_headsign, st.pickup_type, st.drop_off_type, st.shape_dist_traveled, st.timepoint " +
                     "from calendar c " +
                     "inner join trips t on t.service_id = c.service_id " +
                     "inner join stop_times st on st.trip_id = t.id " +

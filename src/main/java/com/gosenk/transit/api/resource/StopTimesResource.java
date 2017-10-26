@@ -13,8 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@RequestMapping( value = "api/stoptimes", produces = MediaType.APPLICATION_JSON_VALUE)
-@CrossOrigin
+@RequestMapping(value = "stopTimes", produces = MediaType.APPLICATION_JSON_VALUE)
 public class StopTimesResource {
 
     @Autowired

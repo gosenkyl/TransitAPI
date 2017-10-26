@@ -12,8 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/trips")
-@CrossOrigin
+@RequestMapping("trips")
 public class TripsResource {
 
     @Autowired

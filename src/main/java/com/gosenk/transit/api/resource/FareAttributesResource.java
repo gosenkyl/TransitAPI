@@ -12,8 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/fareattributes")
-@CrossOrigin
+@RequestMapping("fareattributes")
 public class FareAttributesResource {
 
     @Autowired

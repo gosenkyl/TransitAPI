@@ -12,8 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/feedinfos")
-@CrossOrigin
+@RequestMapping("feedinfos")
 public class FeedInfoResource {
 
     @Autowired

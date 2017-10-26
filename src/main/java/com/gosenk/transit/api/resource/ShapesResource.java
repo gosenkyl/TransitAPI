@@ -12,8 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/shapes")
-@CrossOrigin
+@RequestMapping("shapes")
 public class ShapesResource {
 
     @Autowired

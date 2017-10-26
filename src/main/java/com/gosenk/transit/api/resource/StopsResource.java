@@ -12,8 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/stops")
-@CrossOrigin
+@RequestMapping("stops")
 public class StopsResource {
 
     @Autowired
